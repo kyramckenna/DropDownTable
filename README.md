@@ -16,7 +16,7 @@ When you initially download and unzip the file you will see the following files.
 
 Create your new project and drag the DropdownDialog.framework file into your "Embedded Binaries". 
 
-![Preview](https://github.com/kyramckenna/ScreenShots/blob/master/HowToAddFramework.png)
+![Preview](https://github.com/kyramckenna/ScreenShots/blob/master/downloadFramework.gif)
 
 This action will automatically add the file to the "Linked Framework and Libraries" and into your project as shown below:
 
@@ -27,9 +27,12 @@ How to use the framework
 -----
 In your download I have provided a sample app which uses the DropDownDialog.framework called DropDownTable
 
-1. Import the framework into the View you are using (#import <DropdownDialog/DropdownDialog.h>). I do this in "MyTableViewController"
-2. Now add the delegate <DropDownViewDelegate>
+1. Import the framework into the View you are using. I do this in the example app table view controller "MyTableViewController":
+![Preview](https://github.com/kyramckenna/ScreenShots/blob/master/exportdropDown.png)
+2. Now add the delegate:
+![Preview](https://github.com/kyramckenna/ScreenShots/blob/master/adddropdownviewdelegate.png)
 3. Create an reference to the class @property (strong,nonatomic) DropDownView *dropDownView;
+![Preview](https://github.com/kyramckenna/ScreenShots/blob/master/referencedropdown.png)
 4. Create an array of items. In my example I created three arrays of pre-populated NStrings (firstData, secondData, thirdData). But you could just create this dynamically.
 5. Create a method to catch events for Textfields and TextAreas eg: -(void)textViewDidBeginEditing:(UITextView *)textView
 6. Inside this event, initialise the dropdown table. This is where you specify the contents and dimensions of your dropdown table. Dont forget to set the "tag" value and set the "delegate" to self! The just add this "dropdownview" to the current view you are in ( [self.view addSubview:dropDownView.view];) and then call open animation to make the table appear!
@@ -42,23 +45,9 @@ In your download I have provided a sample app which uses the DropDownDialog.fram
         [self.view addSubview:dropDownView.view];
         [dropDownView openAnimation];
         
-7. Implement the delegate method to get the String information that the User clicked on. You can use the "tag" you set earlier to determine which textfield/view etc was selected:
-    -(void)dropDownCellSelected:(NSString*)tagName itemChosen:(NSString*)item{
-    
-      if([tagName  isEqual: @"place"]){
-          self.firstTextField.text = item;
-      }else if([tagName  isEqual: @"route"]){
-          self.secondTextView.text = item;
-      }else if([tagName  isEqual: @"distance"]){
-          self.thirdTextField.text = item;
-      }
+7. Implement the delegate method to get the String information that the User clicked on. You can use the "tag" you set earlier to determine which textfield/view etc was selected. Then remember to close the dropdownview in this method:
 
-      // Close dropdown view
-      [dropDownView closeAnimation];
-    
-      // Stop scrolling
-      [self.tableView setContentOffset:self.tableView.contentOffset animated:NO];
-    }
+![Preview](https://github.com/kyramckenna/ScreenShots/blob/master/delegatemethod.png)
 
 8. Close the drop down table:   [dropDownView closeAnimation];
 
