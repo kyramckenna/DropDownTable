@@ -26,12 +26,19 @@ This action will automatically add the file to the "Linked Framework and Librari
 How to use the framework
 -----
 In your download I have provided a sample app which uses the DropDownDialog.framework called DropDownTable
-1. Import the framework into the View you are using (#import <DropdownDialog/DropdownDialog.h>). I do this in "MyTableViewController"
 
+1. Import the framework into the View you are using (#import <DropdownDialog/DropdownDialog.h>). I do this in "MyTableViewController"
 2. Now add the delegate <DropDownViewDelegate>
 3. Create an reference to the class @property (strong,nonatomic) DropDownView *dropDownView;
 4. Create an array of items. In my example I created three arrays of pre-populated NStrings (firstData, secondData, thirdData). But you could just create this dynamically.
-4. Create a method to catch events for Textfields and TextAreas eg: -(void)textViewDidBeginEditing:(UITextView *)textView
-5. Inside this event, initialise the dropdown table. This is where you specify the contents and dimensions of your popup/dropdown table
+5. Create a method to catch events for Textfields and TextAreas eg: -(void)textViewDidBeginEditing:(UITextView *)textView
+6. Inside this event, initialise the dropdown table. This is where you specify the contents and dimensions of your dropdown table:  [[DropDownView alloc] initWithArrayData:self.firstData tag:tag cellHeight:30 heightTableView:height widthTableView:width paddingTop:-8 paddingLeft:-5 paddingRight:-10 refView:myRect];
+7. Implement the delegate method to get the String information that the User clicked on:
+-(void)dropDownCellSelected:(NSString*)tagName itemChosen:(NSString*)item{
+8. Close the drop down table:   [dropDownView closeAnimation];
 
-dropDownView = [[DropDownView alloc] initWithArrayData:self.firstData tag:tag cellHeight:30 heightTableView:height widthTableView:width paddingTop:-8 paddingLeft:-5 paddingRight:-10 refView:myRect];
+Sizing the Dropdown Table
+-----
+
+So you need to specify the height, width and left starting position. You can do this using a variety of ways. I have given examples of creating the dropdown table in the center of the UIView
+
