@@ -69,9 +69,11 @@ So you need to specify the content (NSArray) and then the height, width and left
         myRect.origin.x -= width/5; // center of the table
         myRect.origin.y += 60;
 
-Then you can add these values when creating the DropDownTable
+Then you can add these size values when creating the DropDownTable using the initWithArrayData method:
 
         dropDownView = [[DropDownView alloc] initWithArrayData:self.thirdData tag:tag cellHeight:30 heightTableView:height widthTableView:width paddingTop:0 paddingLeft:0 paddingRight:0 refView:myRect];
         
         dropDownView.delegate = self;
         
+Enjoy
+----- :)
