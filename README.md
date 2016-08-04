@@ -3,7 +3,7 @@ DropDownTable
 
 [![Twitter: @kyramckenna](http://img.shields.io/badge/contact-%40Twitter-70a1fb.svg?style=flat)](https://twitter.com/Kyra_epi)   [![LinkedIn: @kyramckenna](http://img.shields.io/badge/contact-%40LinkedIn-4BC51D.svg?style=flat)](https://ie.linkedin.com/in/kyra-mckenna-a3372211)
 
-This framework creates a drop down table view which you can use on a touch event. The example app uses the framework to display a dropdown list from a TextField and TextView. But you could call it on any iOS event. It could also be a center screen pop up.
+This simple framework creates a drop down table view which you can use on a touch event to pop up or drop down a table with a list of strings. The example app uses the framework to display a dropdown list from a TextField and TextView. But you could call it on any iOS event. It could also be a center screen pop up.
 
 ![Preview](https://github.com/kyramckenna/ScreenShots/blob/master/iphoneDropDown.jpg)
 
