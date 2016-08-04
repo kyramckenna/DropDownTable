@@ -76,4 +76,5 @@ Then you can add these size values when creating the DropDownTable using the ini
         dropDownView.delegate = self;
         
 License
+-----
 Free to use :)
